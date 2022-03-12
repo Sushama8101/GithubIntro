@@ -1,0 +1,128 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled5.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMnhs3mmv2h9XOm4z6hg4iB",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Sushama8101/GithubIntro/blob/master/Using%20Sqlite3%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Zb6J9x2zknvb",
+        "outputId": "fa2795e9-a7d6-410c-e4ea-eb2a9bdef77a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting db-sqlite3\n",
+            "  Downloading db-sqlite3-0.0.1.tar.gz (1.4 kB)\n",
+            "Collecting db\n",
+            "  Downloading db-0.1.1.tar.gz (3.4 kB)\n",
+            "Collecting antiorm\n",
+            "  Downloading antiorm-1.2.1.tar.gz (171 kB)\n",
+            "\u001b[K     |████████████████████████████████| 171 kB 2.7 MB/s \n",
+            "\u001b[?25hBuilding wheels for collected packages: db-sqlite3, db, antiorm\n",
+            "  Building wheel for db-sqlite3 (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for db-sqlite3: filename=db_sqlite3-0.0.1-py3-none-any.whl size=1794 sha256=bd5108a54adad9a404a7e0f5ab3c4ae7e631fc6bee991a3dfbed720cc1f48fd7\n",
+            "  Stored in directory: /root/.cache/pip/wheels/02/38/d5/2f54461050571bf5330fee2a37ab1c9b5e7540b0572f1acdab\n",
+            "  Building wheel for db (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for db: filename=db-0.1.1-py3-none-any.whl size=3895 sha256=64b49dfd8227808a0f06dd7ad2d235e4518a0eec8fe49251599d620ab97554b8\n",
+            "  Stored in directory: /root/.cache/pip/wheels/8e/97/82/741d2b360507411ec233d0280d7371faa94b03bde834e4a9be\n",
+            "  Building wheel for antiorm (setup.py) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for antiorm: filename=antiorm-1.2.1-py3-none-any.whl size=31679 sha256=87e12fa3e7875f98d67989a5c40502815e917b3e0c02653f325e2c2c068299d2\n",
+            "  Stored in directory: /root/.cache/pip/wheels/c5/43/70/e9729370cfff40c49d3e3d05377d54b3ecd71f64e62341ea80\n",
+            "Successfully built db-sqlite3 db antiorm\n",
+            "Installing collected packages: antiorm, db, db-sqlite3\n",
+            "Successfully installed antiorm-1.2.1 db-0.1.1 db-sqlite3-0.0.1\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install db-sqlite3"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import sqlite3\n",
+        "from datetime import date"
+      ],
+      "metadata": {
+        "id": "WEE9kLWDlbfS"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#connecting with database,\n",
+        "db = sqlite3.connect(\"testing.db\")\n",
+        "db.execute(\"drop table if exists results\")\n",
+        "try:\n",
+        "  db.execute(\"create table results(Name text, datetime date, mobile text, mail test)\")\n",
+        "except:\n",
+        "  print(\"already table existed!!\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "4r4vrtBQl_63"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "db = sqlite3.connect(\"testing.db\")"
+      ],
+      "metadata": {
+        "id": "vBW9KVcXn9mz"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Date = date.today().strftime(\"%d-%m-%y\")\n",
+        "Name = \"Maya\"\n",
+        "Mobile = \"94325689\""
+      ],
+      "metadata": {
+        "id": "xvEXi_oOoVgX"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
